@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #d9da3e;
+}
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+.main-content {
+  position: relative;
+  top: -5rem;
+  display: flex;
+  flex-direction: column;
+  height: 5rem;
+  width: 40rem;
+  gap: 1rem;
+  color: #2f40ce;
+  font-size: 1.4rem;
+}
+.main-content h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+}
+.vertical-navbar {
+  margin: 40px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+  height: 15rem;
+  width: 9rem;
+  color: #2f40ce;
+  gap: 0.3rem;
+}
+.home,
+.musings,
+.my-town,
+.links {
+  background-color: white;
+  width: 10rem;
+  height: 3rem;
+  text-align: left;
+  padding-left: 0.4rem;
+  border-right: 2px solid black;
+  border-right-width: 1rem;
+  align-content: center;
+}

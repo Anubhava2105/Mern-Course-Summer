@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* vertical navbar */
+.vertical-navbar-container {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #add9e6;
+  height: 9rem;
+  width: 6rem;
+  color: #2f40ce;
+  gap: 0.3rem;
+}
+.home,
+.java,
+.css,
+.html,
+.bootstrap {
+  padding: 0.2rem;
+  height: 4rem;
+  width: 6em;
+  transition: all 200ms;
+}
+.home:hover,
+.java:hover,
+.css:hover,
+.html:hover,
+.bootstrap:hover {
+  background-color: #fea500;
+  color: white;
+  cursor: pointer;
+}
+/* Horizontal Navbar */
+.horizontal-navbar-container {
+  margin: 40px 20px;
+  max-width: 250px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #d3d3d3;
+}
+.hor-home,
+.hor-java,
+.hor-css,
+.hor-html {
+  align-content: center;
+  padding: 0.4rem;
+  height: 2rem;
+  width: 4rem;
+  border-right: 1px solid #2f40ce;
+  color: #2f40ce;
+  transition: all 200ms;
+}
+.hor-home:hover,
+.hor-java:hover,
+.hor-css:hover,
+.hor-html:hover {
+  color: white;
+  cursor: pointer;
+  background-color: #808080;
+}

@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #a22b55;
+}
+.form-container {
+  margin: 10rem auto;
+  width: 35%;
+  background-color: #75203f;
+  font-size: 1.4rem;
+}
+td {
+  color: white;
+}
+.form-container form table {
+  padding: 1rem;
+  margin: 2rem;
+}
+td input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 15rem;
+  border-radius: 0.4rem;
+  border: none;
+  padding: 0.3rem;
+}
+#language {
+  padding: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.3rem;
+}
+#about {
+  width: 100%;
+  border-radius: 0.4rem;
+  border: none;
+  padding: 0.3rem;
+}
+button {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
