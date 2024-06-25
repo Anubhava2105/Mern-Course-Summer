@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>task1_js</title>
+</head>
+<body>
+    <h1>Reversed Number</h1>
+    <h2 id="output">hah</h2>
+    <script>
+        let num=window.prompt('Enter a number');
+        const reverse=(num)=>{
+            let rev=0;
+            while(num!=0){
+                let digit=num%10;
+                rev=rev*10+digit;
+                num=Math.floor(num/10);
+            }
+            return rev;
+        }
+        let result=document.getElementById("output");
+        result.innerHTML="The reversed number is: "+reverse(num);
+    </script>
+    
+</body>
+</html>

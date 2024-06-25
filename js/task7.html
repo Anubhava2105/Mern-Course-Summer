@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task7_js</title>
+    <style>
+      input[type="button"]{
+        border-radius:2rem;
+        width:5rem;
+        border:none;
+        padding:0.7rem;
+        cursor:pointer;
+      }
+      body {
+        background-image: url("../bootstrap/images/background.jpeg");
+      }
+    </style>
+  </head>
+  <body>
+    <!-- html tag -->
+    <h1>We are coding a moving car</h1>
+    <input type="button" value="Start" onclick="start()" />
+    <input type="button" value="Stop" onclick="stop()" />
+    <input type="button" value="Reverse" onclick="reverse()" />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <img src="../bootstrap/images/car.png" alt="error" id="mycar" />
+
+    <script>
+      // to move my car
+      var animation;
+      function init() {
+        let mycar = document.getElementById("mycar");
+        mycar.style.position = "absolute";
+        mycar.style.left = "0px";
+      }
+      window.onload = init;
+      let mycar = document.getElementById("mycar");
+
+      function start() {
+        mycar.style.left = parseInt(mycar.style.left) + 10 + "px";
+        animation = setTimeout(start, 50);
+      }
+      function stop() {
+        clearTimeout(animation);
+        mycar.style.left = "paused";
+      }
+      function reverse(){
+        mycar.style.left=parseInt(mycar.style.left) - 10 +"px";
+        animation=setTimeout(reverse,70);
+      }
+    </script>
+  </body>
+</html>

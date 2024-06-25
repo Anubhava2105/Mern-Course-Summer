@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2_js</title>
+</head>
+<body>
+    <h1>Sort a string in alphabetical order:</h1>
+    <h2 id="output">ah</h2>
+    <script type="text/javascript">
+        let input=window.prompt('Enter a string to be sorted');
+        
+        let arr=input.split('');
+        arr.sort();
+        let sortedString=arr.join('');
+        const result=document.getElementById('output')
+        result.textContent=sortedString;
+    </script>
+</body>
+</html>
