@@ -1,136 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>task8_js</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background:linear-gradient(to bottom, #f2f0ba,#ee8787,#db8dff )
-        }
-        form {
-            width: 50%;
-            margin: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        td {
-            padding: 8px;
-            border: 1px solid #ccc;
-        }
-        th {
-            text-align: left;
-        }
-        input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .checkbox-group {
-            display: flex;
-            gap: 10px;
-        }
-        .checkbox-group input {
-            margin-top: 5px;
-        }
-        .checkbox-group label {
-            margin-top: 2px;
-        }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #f2f0ba, #ee8787, #db8dff);
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        margin: auto;
+      }
+      table {
+        width: 50%;
+        border-collapse: collapse;
+      }
+      td {
+        height: 2rem;
+        width: fit-content;
+        text-align: right;
+        padding: 8px;
+        border: none;
+      }
+      th {
+        text-align: left;
+      }
+      .radio {
+        text-align: left;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="number"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: none;
+      }
+      .checkbox {
+        margin: 1rem;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .checkbox-group {
+        display: flex;
+        gap: 10px;
+      }
+      .checkbox-group input {
+        margin-top: 5px;
+      }
+      .checkbox-group label {
+        margin-top: 2px;
+      }
+      .button-link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+      button {
+        margin: 5px auto;
+        padding: 0.2rem 1rem;
+        font-size: 1.8rem;
+        color: white;
+        background-color: red;
+        border: 2px solid black;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .error {
+        color: red;
+        font-size: 1rem;
+        display: none;
+      }
+      .error-visible {
+        display: block;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: blue; font-size: 3rem">
+      Registration Form
+    </h1>
 
-<h2 style="text-align: center; color: blue;">Registration form</h2>
+    <form id="registration-form" novalidate>
+      <table>
+        <tr>
+          <td><label for="first-name">First Name</label></td>
+          <td>
+            <input type="text" id="first-name" name="first-name" />
+            <span class="error" id="first-name-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="last-name">Last Name</label></td>
+          <td>
+            <input type="text" id="last-name" name="last-name" />
+            <span class="error" id="last-name-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="email">Email</label></td>
+          <td>
+            <input type="email" id="email" name="email" />
+            <span class="error" id="email-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password">Password</label></td>
+          <td>
+            <input type="password" id="password" name="password" />
+            <span class="error" id="password-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="re-password">Re-enter Password</label></td>
+          <td>
+            <input type="password" id="re-password" name="re-password" />
+            <span class="error" id="re-password-error">Poor or Mismatch</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td class="radio">
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+            <span class="error" id="gender-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td>
+            <input type="number" id="age" name="age" />
+            <span class="error" id="age-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="phone-number">Phone Number</label></td>
+          <td>
+            <input type="text" id="phone-number" name="phone-number" />
+            <span class="error" id="phone-number-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="address">Address</label></td>
+          <td>
+            <textarea id="address" name="address" rows="4"></textarea>
+            <span class="error" id="address-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="state">State</label></td>
+          <td>
+            <input type="text" id="state" name="state" />
+            <span class="error" id="state-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="country">Country</label></td>
+          <td>
+            <select id="country" name="country">
+              <option value="">Choose your country</option>
+              <option value="india">India</option>
+              <option value="usa">USA</option>
+              <!-- Add more countries as needed -->
+            </select>
+            <span class="error" id="country-error">Poor</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Languages known</td>
+          <td class="checkbox-group">
+            <input
+              type="checkbox"
+              id="english"
+              name="languages"
+              value="english"
+            />
+            <label for="english">English</label>
+            <input
+              type="checkbox"
+              id="kannada"
+              name="languages"
+              value="kannada"
+            />
+            <label for="kannada">Kannada</label>
+            <input type="checkbox" id="hindi" name="languages" value="hindi" />
+            <label for="hindi">Hindi</label>
+            <input
+              type="checkbox"
+              id="telugu"
+              name="languages"
+              value="telugu"
+            />
+            <label for="telugu">Telugu</label>
+            <span class="error" id="languages-error">Poor</span>
+          </td>
+        </tr>
+      </table>
+      <div class="checkbox">
+        <input type="checkbox" id="declare" name="declare" />
+        <label for="declare"
+          >Hereby I declare all the given details are true</label
+        >
+        <!-- <span class="error" id="declare-error"
+          >You must declare that the information provided is true.</span
+        > -->
+      </div>
+      <div class="button-link-container">
+        <a href="http://ethnus.com">Log in to Ethnus website</a>
+        <br />
+        <button type="submit">Register</button>
+      </div>
+    </form>
 
-<form>
-    <table>
-        <tr>
-            <td><label for="first-name">First Name</label></td>
-            <td><input type="text" id="first-name" name="first-name"></td>
-        </tr>
-        <tr>
-            <td><label for="last-name">Last Name</label></td>
-            <td><input type="text" id="last-name" name="last-name"></td>
-        </tr>
-        <tr>
-            <td><label for="email">Email</label></td>
-            <td><input type="email" id="email" name="email"></td>
-        </tr>
-        <tr>
-            <td><label for="password">Password</label></td>
-            <td><input type="password" id="password" name="password"></td>
-        </tr>
-        <tr>
-            <td><label for="re-password">Re-enter Password</label></td>
-            <td><input type="password" id="re-password" name="re-password"></td>
-        </tr>
-        <tr>
-            <td>Gender:</td>
-            <td>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label>
-            </td>
-        </tr>
-        <tr>
-            <td><label for="age">Age:</label></td>
-            <td><input type="number" id="age" name="age"></td>
-        </tr>
-        <tr>
-            <td><label for="phone-number">Phone Number</label></td>
-            <td><input type="text" id="phone-number" name="phone-number"></td>
-        </tr>
-        <tr>
-            <td><label for="address">Address</label></td>
-            <td><textarea id="address" name="address" rows="4"></textarea></td>
-        </tr>
-        <tr>
-            <td><label for="state">State</label></td>
-            <td><input type="text" id="state" name="state"></td>
-        </tr>
-        <tr>
-            <td><label for="country">Country</label></td>
-            <td>
-                <select id="country" name="country">
-                    <option value="">Choose your country</option>
-                    <option value="india">India</option>
-                    <option value="usa">USA</option>
-                    <!-- Add more countries as needed -->
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Languages known</td>
-            <td class="checkbox-group">
-                <input type="checkbox" id="english" name="languages" value="english">
-                <label for="english">English</label>
-                <input type="checkbox" id="kannada" name="languages" value="kannada">
-                <label for="kannada">Kannada</label>
-                <input type="checkbox" id="hindi" name="languages" value="hindi">
-                <label for="hindi">Hindi</label>
-                <input type="checkbox" id="telugu" name="languages" value="telugu">
-                <label for="telugu">Telugu</label>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="checkbox" id="declare" name="declare">
-                <label for="declare">Hereby I declare all the given details are true</label>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center;">
-                <button type="submit">Register</button>
-                <br>
-                <a href="http://ethnus.com">Log in to Ethnus website</a>
-            </td>
-        </tr>
-    </table>
-</form>
+    <script>
+      document
+        .getElementById("registration-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let isValid = true;
 
-</body>
+          function showError(elementId, errorId) {
+            document.getElementById(elementId).style.borderColor = "red";
+            document.getElementById(errorId).classList.add("error-visible");
+            isValid = false;
+          }
+
+          function hideError(elementId, errorId) {
+            document.getElementById(elementId).style.borderColor = "";
+            document.getElementById(errorId).classList.remove("error-visible");
+          }
+
+          const firstName = document.getElementById("first-name").value;
+          const lastName = document.getElementById("last-name").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const rePassword = document.getElementById("re-password").value;
+          const gender = document.querySelector('input[name="gender"]:checked');
+          const age = document.getElementById("age").value;
+          const phoneNumber = document.getElementById("phone-number").value;
+          const address = document.getElementById("address").value;
+          const state = document.getElementById("state").value;
+          const country = document.getElementById("country").value;
+          const languages = document.querySelectorAll(
+            'input[name="languages"]:checked'
+          );
+          const declare = document.getElementById("declare").checked;
+
+          if (!firstName) {
+            showError("first-name", "first-name-error");
+          } else {
+            hideError("first-name", "first-name-error");
+          }
+
+          if (!lastName) {
+            showError("last-name", "last-name-error");
+          } else {
+            hideError("last-name", "last-name-error");
+          }
+
+          if (!email) {
+            showError("email", "email-error");
+          } else {
+            hideError("email", "email-error");
+          }
+
+          if (!password) {
+            showError("password", "password-error");
+          } else {
+            hideError("password", "password-error");
+          }
+
+          if (password !== rePassword) {
+            showError("re-password", "re-password-error");
+          } else {
+            hideError("re-password", "re-password-error");
+          }
+
+          if (!gender) {
+            showError("male", "gender-error");
+          } else {
+            hideError("male", "gender-error");
+          }
+
+          if (!age) {
+            showError("age", "age-error");
+          } else {
+            hideError("age", "age-error");
+          }
+
+          if (!phoneNumber) {
+            showError("phone-number", "phone-number-error");
+          } else {
+            hideError("phone-number", "phone-number-error");
+          }
+
+          if (!address) {
+            showError("address", "address-error");
+          } else {
+            hideError("address", "address-error");
+          }
+
+          if (!state) {
+            showError("state", "state-error");
+          } else {
+            hideError("state", "state-error");
+          }
+
+          if (!country) {
+            showError("country", "country-error");
+          } else {
+            hideError("country", "country-error");
+          }
+
+          if (languages.length === 0) {
+            showError("english", "languages-error");
+          } else {
+            hideError("english", "languages-error");
+          }
+
+          // if (!declare) {
+          //   showError("declare", "declare-error");
+          // } else {
+          //   hideError("declare", "declare-error");
+          // }
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+            // Submit the form or perform any additional actions here
+          }
+        });
+    </script>
+  </body>
 </html>

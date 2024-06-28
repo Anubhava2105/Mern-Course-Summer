@@ -1,11 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b7f8023334.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>task6_js</title>
+    <style>
+      /* Existing CSS styles */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif, Helvetica, sans-serif;
+        font-weight: 200;
+      }
+      .form-container {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+        border-radius: 3px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+        background-color: rgb(247, 247, 247);
+      }
+      .header {
+        font-size: 1.5rem;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      .login-form {
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .form-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        background-color: rgb(232, 235, 237);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+      }
+      .fa-solid {
+        font-size: 1.2rem;
+        margin: auto 0.1rem;
+      }
+      span {
+        padding: 0.4rem;
+        width: 1rem;
+      }
+      .login-form input[type="text"],
+      input[type="password"] {
+        border: none;
+        width: 20rem;
+        padding: 0.5rem;
+        border-left: 1px solid rgba(0, 0, 0, 0.3);
+      }
+      #login-btn {
+        background-color: rgb(0, 122, 255);
+        color: white;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        border: none;
+        width: 100%;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      .sub-options-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7rem;
+        font-size: 1rem;
+      }
+      #remember {
+        margin: 0;
+      }
+      .signup {
+        font-size: 1rem;
+      }
+      a {
+        color: rgb(0, 122, 255);
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="header">
+          <h1><i>Instagram</i></h1>
+        </div>
+        <form class="login-form" id="login-form">
+          <div class="form-content">
+            <span><i class="fa-solid fa-user"></i></span>
+            <input
+              type="text"
+              placeholder="Username"
+              id="username"
+              name="username"
+            />
+          </div>
+
+          <div class="form-content">
+            <span><i class="fa-solid fa-lock"></i></span>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              name="password"
+            />
+          </div>
+
+          <button type="submit" id="login-btn">Log in</button>
+          <div class="sub-options-container">
+            <div>
+              <input type="checkbox" name="remember" id="remember" />Remember
+            </div>
+            <a href="#">Forgot password?</a>
+          </div>
+        </form>
+      </div>
+      <div class="signup">
+        <h3>Don't have an account! <a href="#">Sign up here</a></h3>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelector(".login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let isValid = true;
+
+          function showError(elementId) {
+            document.getElementById(elementId).style.borderColor = "red";
+            isValid = false;
+          }
+
+          function hideError(elementId) {
+            document.getElementById(elementId).style.borderColor = "";
+          }
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (!username) {
+            showError("username");
+          } else {
+            hideError("username");
+          }
+
+          if (!password) {
+            showError("password");
+          } else {
+            hideError("password");
+          }
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+            // Perform the form submission action here
+          }
+        });
+    </script>
+  </body>
 </html>
